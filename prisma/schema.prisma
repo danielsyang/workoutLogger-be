@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../prisma/generated/type-graphql"
+}
+
+model Workout {
+  id        String     @id @default(uuid())
+  name      String
+  Exercise  Exercise[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Exercise {
+  id        String   @id @default(uuid())
+  name      String
+  workout   Workout  @relation(fields: [workoutId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  workoutId String
+  Set       Set[]
+}
+
+model Set {
+  id         String     @id @default(uuid())
+  reps       Int
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  exercise   Exercise   @relation(fields: [exerciseId], references: [id])
+  exerciseId String
+  perception Perception
+}
+
+enum Perception {
+  GOOD
+  MEDIUM
+  BAD
+}
