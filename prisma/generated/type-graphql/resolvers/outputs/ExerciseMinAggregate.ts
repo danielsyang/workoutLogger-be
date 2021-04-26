@@ -17,6 +17,11 @@ export class ExerciseMinAggregate {
   })
   name!: string | null;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  suggestion!: string | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

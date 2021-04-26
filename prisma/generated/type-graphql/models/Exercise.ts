@@ -19,6 +19,11 @@ export class Exercise {
   })
   name!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  suggestion!: string;
+
   workout?: Workout;
 
   @TypeGraphQL.Field(_type => Date, {

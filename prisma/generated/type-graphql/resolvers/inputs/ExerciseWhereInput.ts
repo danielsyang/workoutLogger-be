@@ -36,6 +36,11 @@ export class ExerciseWhereInput {
   })
   name?: StringFilter | undefined;
 
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  suggestion?: StringFilter | undefined;
+
   @TypeGraphQL.Field(_type => WorkoutRelationFilter, {
     nullable: true
   })

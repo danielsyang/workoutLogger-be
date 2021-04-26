@@ -20,6 +20,11 @@ export class ExerciseGroupBy {
   })
   name!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  suggestion!: string;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })

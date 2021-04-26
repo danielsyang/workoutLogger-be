@@ -17,6 +17,11 @@ export class ExerciseCreateManyWorkoutInput {
   })
   name!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  suggestion!: string;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

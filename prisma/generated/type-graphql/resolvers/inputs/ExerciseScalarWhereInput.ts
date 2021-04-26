@@ -34,6 +34,11 @@ export class ExerciseScalarWhereInput {
   })
   name?: StringFilter | undefined;
 
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  suggestion?: StringFilter | undefined;
+
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
