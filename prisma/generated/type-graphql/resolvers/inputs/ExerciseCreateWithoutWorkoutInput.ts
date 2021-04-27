@@ -18,10 +18,15 @@ export class ExerciseCreateWithoutWorkoutInput {
   })
   name!: string;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
   })
-  suggestion!: string;
+  sets?: number | undefined;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  reps?: number | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

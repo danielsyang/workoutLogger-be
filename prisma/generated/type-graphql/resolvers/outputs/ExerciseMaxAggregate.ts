@@ -17,10 +17,15 @@ export class ExerciseMaxAggregate {
   })
   name!: string | null;
 
-  @TypeGraphQL.Field(_type => String, {
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  suggestion!: string | null;
+  sets!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  reps!: number | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

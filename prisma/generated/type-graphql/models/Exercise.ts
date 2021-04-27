@@ -19,10 +19,15 @@ export class Exercise {
   })
   name!: string;
 
-  @TypeGraphQL.Field(_type => String, {
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  suggestion!: string;
+  sets!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  reps!: number;
 
   workout?: Workout;
 
