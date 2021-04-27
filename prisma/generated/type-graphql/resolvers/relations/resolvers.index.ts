@@ -1,3 +1,3 @@
 export { ExerciseRelationsResolver } from "./Exercise/ExerciseRelationsResolver";
-export { SetRelationsResolver } from "./Set/SetRelationsResolver";
+export { ExerciseRecordRelationsResolver } from "./ExerciseRecord/ExerciseRecordRelationsResolver";
 export { WorkoutRelationsResolver } from "./Workout/WorkoutRelationsResolver";

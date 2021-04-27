@@ -3,8 +3,8 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { ExerciseRecordUpdateManyWithoutExerciseInput } from "../inputs/ExerciseRecordUpdateManyWithoutExerciseInput";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
-import { SetUpdateManyWithoutExerciseInput } from "../inputs/SetUpdateManyWithoutExerciseInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { WorkoutUpdateOneRequiredWithoutExerciseInput } from "../inputs/WorkoutUpdateOneRequiredWithoutExerciseInput";
 
@@ -47,8 +47,8 @@ export class ExerciseUpdateInput {
   })
   workout?: WorkoutUpdateOneRequiredWithoutExerciseInput | undefined;
 
-  @TypeGraphQL.Field(_type => SetUpdateManyWithoutExerciseInput, {
+  @TypeGraphQL.Field(_type => ExerciseRecordUpdateManyWithoutExerciseInput, {
     nullable: true
   })
-  Set?: SetUpdateManyWithoutExerciseInput | undefined;
+  Set?: ExerciseRecordUpdateManyWithoutExerciseInput | undefined;
 }

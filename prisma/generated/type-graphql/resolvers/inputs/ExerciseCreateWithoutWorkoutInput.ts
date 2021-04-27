@@ -2,7 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { SetCreateNestedManyWithoutExerciseInput } from "../inputs/SetCreateNestedManyWithoutExerciseInput";
+import { ExerciseRecordCreateNestedManyWithoutExerciseInput } from "../inputs/ExerciseRecordCreateNestedManyWithoutExerciseInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
@@ -38,8 +38,8 @@ export class ExerciseCreateWithoutWorkoutInput {
   })
   updatedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => SetCreateNestedManyWithoutExerciseInput, {
+  @TypeGraphQL.Field(_type => ExerciseRecordCreateNestedManyWithoutExerciseInput, {
     nullable: true
   })
-  Set?: SetCreateNestedManyWithoutExerciseInput | undefined;
+  Set?: ExerciseRecordCreateNestedManyWithoutExerciseInput | undefined;
 }

@@ -1,3 +1,3 @@
 export { ExerciseCrudResolver } from "./Exercise/ExerciseCrudResolver";
-export { SetCrudResolver } from "./Set/SetCrudResolver";
+export { ExerciseRecordCrudResolver } from "./ExerciseRecord/ExerciseRecordCrudResolver";
 export { WorkoutCrudResolver } from "./Workout/WorkoutCrudResolver";

@@ -24,20 +24,20 @@ model Workout {
 }
 
 model Exercise {
-  id        String   @id @default(uuid())
+  id        String           @id @default(uuid())
   name      String
   sets      Int
   reps      Int
-  workout   Workout  @relation(fields: [workoutId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  workout   Workout          @relation(fields: [workoutId], references: [id])
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
   workoutId String
-  Set       Set[]
+  Set       ExerciseRecord[]
 }
 
-model Set {
+model ExerciseRecord {
   id         String     @id @default(uuid())
-  reps       Int
+  reps       Int[]
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
   exercise   Exercise   @relation(fields: [exerciseId], references: [id])

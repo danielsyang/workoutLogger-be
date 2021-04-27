@@ -1,26 +1,26 @@
 import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
-import { SetOrderByInput } from "../../../inputs/SetOrderByInput";
-import { SetWhereInput } from "../../../inputs/SetWhereInput";
-import { SetWhereUniqueInput } from "../../../inputs/SetWhereUniqueInput";
-import { SetScalarFieldEnum } from "../../../../enums/SetScalarFieldEnum";
+import { ExerciseRecordOrderByInput } from "../../../inputs/ExerciseRecordOrderByInput";
+import { ExerciseRecordWhereInput } from "../../../inputs/ExerciseRecordWhereInput";
+import { ExerciseRecordWhereUniqueInput } from "../../../inputs/ExerciseRecordWhereUniqueInput";
+import { ExerciseRecordScalarFieldEnum } from "../../../../enums/ExerciseRecordScalarFieldEnum";
 
 @TypeGraphQL.ArgsType()
 export class ExerciseSetArgs {
-  @TypeGraphQL.Field(_type => SetWhereInput, {
+  @TypeGraphQL.Field(_type => ExerciseRecordWhereInput, {
     nullable: true
   })
-  where?: SetWhereInput | undefined;
+  where?: ExerciseRecordWhereInput | undefined;
 
-  @TypeGraphQL.Field(_type => [SetOrderByInput], {
+  @TypeGraphQL.Field(_type => [ExerciseRecordOrderByInput], {
     nullable: true
   })
-  orderBy?: SetOrderByInput[] | undefined;
+  orderBy?: ExerciseRecordOrderByInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => SetWhereUniqueInput, {
+  @TypeGraphQL.Field(_type => ExerciseRecordWhereUniqueInput, {
     nullable: true
   })
-  cursor?: SetWhereUniqueInput | undefined;
+  cursor?: ExerciseRecordWhereUniqueInput | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
@@ -32,7 +32,7 @@ export class ExerciseSetArgs {
   })
   skip?: number | undefined;
 
-  @TypeGraphQL.Field(_type => [SetScalarFieldEnum], {
+  @TypeGraphQL.Field(_type => [ExerciseRecordScalarFieldEnum], {
     nullable: true
   })
   distinct?: Array<"id" | "reps" | "createdAt" | "updatedAt" | "exerciseId" | "perception"> | undefined;

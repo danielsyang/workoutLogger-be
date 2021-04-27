@@ -1,3 +1,3 @@
 export { Exercise } from "./Exercise";
-export { Set } from "./Set";
+export { ExerciseRecord } from "./ExerciseRecord";
 export { Workout } from "./Workout";

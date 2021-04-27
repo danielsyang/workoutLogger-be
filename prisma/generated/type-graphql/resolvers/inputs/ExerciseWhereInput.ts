@@ -3,8 +3,8 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { ExerciseRecordListRelationFilter } from "../inputs/ExerciseRecordListRelationFilter";
 import { IntFilter } from "../inputs/IntFilter";
-import { SetListRelationFilter } from "../inputs/SetListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { WorkoutRelationFilter } from "../inputs/WorkoutRelationFilter";
 
@@ -67,8 +67,8 @@ export class ExerciseWhereInput {
   })
   workoutId?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => SetListRelationFilter, {
+  @TypeGraphQL.Field(_type => ExerciseRecordListRelationFilter, {
     nullable: true
   })
-  Set?: SetListRelationFilter | undefined;
+  Set?: ExerciseRecordListRelationFilter | undefined;
 }

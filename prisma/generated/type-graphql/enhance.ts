@@ -10,12 +10,12 @@ import * as argsTypes from "./resolvers/crud/args.index";
 const crudResolversMap = {
   Workout: crudResolvers.WorkoutCrudResolver,
   Exercise: crudResolvers.ExerciseCrudResolver,
-  Set: crudResolvers.SetCrudResolver
+  ExerciseRecord: crudResolvers.ExerciseRecordCrudResolver
 };
 const relationResolversMap = {
   Workout: relationResolvers.WorkoutRelationsResolver,
   Exercise: relationResolvers.ExerciseRelationsResolver,
-  Set: relationResolvers.SetRelationsResolver
+  ExerciseRecord: relationResolvers.ExerciseRecordRelationsResolver
 };
 const actionResolversMap = {
   Workout: {
@@ -46,35 +46,35 @@ const actionResolversMap = {
     aggregateExercise: actionResolvers.AggregateExerciseResolver,
     groupByExercise: actionResolvers.GroupByExerciseResolver
   },
-  Set: {
-    set: actionResolvers.FindUniqueSetResolver,
-    findFirstSet: actionResolvers.FindFirstSetResolver,
-    sets: actionResolvers.FindManySetResolver,
-    createSet: actionResolvers.CreateSetResolver,
-    createManySet: actionResolvers.CreateManySetResolver,
-    deleteSet: actionResolvers.DeleteSetResolver,
-    updateSet: actionResolvers.UpdateSetResolver,
-    deleteManySet: actionResolvers.DeleteManySetResolver,
-    updateManySet: actionResolvers.UpdateManySetResolver,
-    upsertSet: actionResolvers.UpsertSetResolver,
-    aggregateSet: actionResolvers.AggregateSetResolver,
-    groupBySet: actionResolvers.GroupBySetResolver
+  ExerciseRecord: {
+    exerciseRecord: actionResolvers.FindUniqueExerciseRecordResolver,
+    findFirstExerciseRecord: actionResolvers.FindFirstExerciseRecordResolver,
+    exerciseRecords: actionResolvers.FindManyExerciseRecordResolver,
+    createExerciseRecord: actionResolvers.CreateExerciseRecordResolver,
+    createManyExerciseRecord: actionResolvers.CreateManyExerciseRecordResolver,
+    deleteExerciseRecord: actionResolvers.DeleteExerciseRecordResolver,
+    updateExerciseRecord: actionResolvers.UpdateExerciseRecordResolver,
+    deleteManyExerciseRecord: actionResolvers.DeleteManyExerciseRecordResolver,
+    updateManyExerciseRecord: actionResolvers.UpdateManyExerciseRecordResolver,
+    upsertExerciseRecord: actionResolvers.UpsertExerciseRecordResolver,
+    aggregateExerciseRecord: actionResolvers.AggregateExerciseRecordResolver,
+    groupByExerciseRecord: actionResolvers.GroupByExerciseRecordResolver
   }
 };
 const resolversInfo = {
   Workout: ["workout", "findFirstWorkout", "workouts", "createWorkout", "createManyWorkout", "deleteWorkout", "updateWorkout", "deleteManyWorkout", "updateManyWorkout", "upsertWorkout", "aggregateWorkout", "groupByWorkout"],
   Exercise: ["exercise", "findFirstExercise", "exercises", "createExercise", "createManyExercise", "deleteExercise", "updateExercise", "deleteManyExercise", "updateManyExercise", "upsertExercise", "aggregateExercise", "groupByExercise"],
-  Set: ["set", "findFirstSet", "sets", "createSet", "createManySet", "deleteSet", "updateSet", "deleteManySet", "updateManySet", "upsertSet", "aggregateSet", "groupBySet"]
+  ExerciseRecord: ["exerciseRecord", "findFirstExerciseRecord", "exerciseRecords", "createExerciseRecord", "createManyExerciseRecord", "deleteExerciseRecord", "updateExerciseRecord", "deleteManyExerciseRecord", "updateManyExerciseRecord", "upsertExerciseRecord", "aggregateExerciseRecord", "groupByExerciseRecord"]
 };
 const relationResolversInfo = {
   Workout: ["Exercise"],
   Exercise: ["workout", "Set"],
-  Set: ["exercise"]
+  ExerciseRecord: ["exercise"]
 };
 const modelsInfo = {
   Workout: ["id", "name", "createdAt", "updatedAt"],
   Exercise: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
-  Set: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"]
+  ExerciseRecord: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"]
 };
 const inputsInfo = {
   WorkoutWhereInput: ["AND", "OR", "NOT", "id", "name", "Exercise", "createdAt", "updatedAt"],
@@ -85,10 +85,10 @@ const inputsInfo = {
   ExerciseOrderByInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
   ExerciseWhereUniqueInput: ["id"],
   ExerciseScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
-  SetWhereInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exercise", "exerciseId", "perception"],
-  SetOrderByInput: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
-  SetWhereUniqueInput: ["id"],
-  SetScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
+  ExerciseRecordWhereInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exercise", "exerciseId", "perception"],
+  ExerciseRecordOrderByInput: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
+  ExerciseRecordWhereUniqueInput: ["id"],
+  ExerciseRecordScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
   WorkoutCreateInput: ["id", "name", "createdAt", "updatedAt", "Exercise"],
   WorkoutUpdateInput: ["id", "name", "createdAt", "updatedAt", "Exercise"],
   WorkoutCreateManyInput: ["id", "name", "createdAt", "updatedAt"],
@@ -97,10 +97,10 @@ const inputsInfo = {
   ExerciseUpdateInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workout", "Set"],
   ExerciseCreateManyInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
   ExerciseUpdateManyMutationInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt"],
-  SetCreateInput: ["id", "reps", "createdAt", "updatedAt", "perception", "exercise"],
-  SetUpdateInput: ["id", "reps", "createdAt", "updatedAt", "perception", "exercise"],
-  SetCreateManyInput: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
-  SetUpdateManyMutationInput: ["id", "reps", "createdAt", "updatedAt", "perception"],
+  ExerciseRecordCreateInput: ["id", "createdAt", "updatedAt", "perception", "reps", "exercise"],
+  ExerciseRecordUpdateInput: ["id", "createdAt", "updatedAt", "perception", "reps", "exercise"],
+  ExerciseRecordCreateManyInput: ["id", "createdAt", "updatedAt", "exerciseId", "perception", "reps"],
+  ExerciseRecordUpdateManyMutationInput: ["id", "createdAt", "updatedAt", "perception", "reps"],
   StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
   ExerciseListRelationFilter: ["every", "some", "none"],
   DateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
@@ -108,8 +108,9 @@ const inputsInfo = {
   DateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "count", "min", "max"],
   IntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
   WorkoutRelationFilter: ["is", "isNot"],
-  SetListRelationFilter: ["every", "some", "none"],
+  ExerciseRecordListRelationFilter: ["every", "some", "none"],
   IntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "count", "avg", "sum", "min", "max"],
+  IntNullableListFilter: ["equals", "has", "hasEvery", "hasSome", "isEmpty"],
   ExerciseRelationFilter: ["is", "isNot"],
   EnumPerceptionFilter: ["equals", "in", "notIn", "not"],
   EnumPerceptionWithAggregatesFilter: ["equals", "in", "notIn", "not", "count", "min", "max"],
@@ -118,13 +119,16 @@ const inputsInfo = {
   DateTimeFieldUpdateOperationsInput: ["set"],
   ExerciseUpdateManyWithoutWorkoutInput: ["create", "connectOrCreate", "upsert", "createMany", "connect", "set", "disconnect", "delete", "update", "updateMany", "deleteMany"],
   WorkoutCreateNestedOneWithoutExerciseInput: ["create", "connectOrCreate", "connect"],
-  SetCreateNestedManyWithoutExerciseInput: ["create", "connectOrCreate", "createMany", "connect"],
+  ExerciseRecordCreateNestedManyWithoutExerciseInput: ["create", "connectOrCreate", "createMany", "connect"],
   IntFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
   WorkoutUpdateOneRequiredWithoutExerciseInput: ["create", "connectOrCreate", "upsert", "connect", "update"],
-  SetUpdateManyWithoutExerciseInput: ["create", "connectOrCreate", "upsert", "createMany", "connect", "set", "disconnect", "delete", "update", "updateMany", "deleteMany"],
+  ExerciseRecordUpdateManyWithoutExerciseInput: ["create", "connectOrCreate", "upsert", "createMany", "connect", "set", "disconnect", "delete", "update", "updateMany", "deleteMany"],
+  ExerciseRecordCreaterepsInput: ["set"],
   ExerciseCreateNestedOneWithoutSetInput: ["create", "connectOrCreate", "connect"],
   EnumPerceptionFieldUpdateOperationsInput: ["set"],
+  ExerciseRecordUpdaterepsInput: ["set", "push"],
   ExerciseUpdateOneRequiredWithoutSetInput: ["create", "connectOrCreate", "upsert", "connect", "update"],
+  ExerciseRecordCreateManyrepsInput: ["set"],
   NestedStringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
   NestedDateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
   NestedStringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "count", "min", "max"],
@@ -143,31 +147,31 @@ const inputsInfo = {
   ExerciseScalarWhereInput: ["AND", "OR", "NOT", "id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
   WorkoutCreateWithoutExerciseInput: ["id", "name", "createdAt", "updatedAt"],
   WorkoutCreateOrConnectWithoutExerciseInput: ["where", "create"],
-  SetCreateWithoutExerciseInput: ["id", "reps", "createdAt", "updatedAt", "perception"],
-  SetCreateOrConnectWithoutExerciseInput: ["where", "create"],
-  SetCreateManyExerciseInputEnvelope: ["data", "skipDuplicates"],
+  ExerciseRecordCreateWithoutExerciseInput: ["id", "createdAt", "updatedAt", "perception", "reps"],
+  ExerciseRecordCreateOrConnectWithoutExerciseInput: ["where", "create"],
+  ExerciseRecordCreateManyExerciseInputEnvelope: ["data", "skipDuplicates"],
   WorkoutUpsertWithoutExerciseInput: ["update", "create"],
   WorkoutUpdateWithoutExerciseInput: ["id", "name", "createdAt", "updatedAt"],
-  SetUpsertWithWhereUniqueWithoutExerciseInput: ["where", "update", "create"],
-  SetUpdateWithWhereUniqueWithoutExerciseInput: ["where", "data"],
-  SetUpdateManyWithWhereWithoutExerciseInput: ["where", "data"],
-  SetScalarWhereInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
+  ExerciseRecordUpsertWithWhereUniqueWithoutExerciseInput: ["where", "update", "create"],
+  ExerciseRecordUpdateWithWhereUniqueWithoutExerciseInput: ["where", "data"],
+  ExerciseRecordUpdateManyWithWhereWithoutExerciseInput: ["where", "data"],
+  ExerciseRecordScalarWhereInput: ["AND", "OR", "NOT", "id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
   ExerciseCreateWithoutSetInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workout"],
   ExerciseCreateOrConnectWithoutSetInput: ["where", "create"],
   ExerciseUpsertWithoutSetInput: ["update", "create"],
   ExerciseUpdateWithoutSetInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workout"],
   ExerciseCreateManyWorkoutInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt"],
   ExerciseUpdateWithoutWorkoutInput: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "Set"],
-  SetCreateManyExerciseInput: ["id", "reps", "createdAt", "updatedAt", "perception"],
-  SetUpdateWithoutExerciseInput: ["id", "reps", "createdAt", "updatedAt", "perception"]
+  ExerciseRecordCreateManyExerciseInput: ["id", "createdAt", "updatedAt", "perception", "reps"],
+  ExerciseRecordUpdateWithoutExerciseInput: ["id", "createdAt", "updatedAt", "perception", "reps"]
 };
 const outputsInfo = {
   AggregateWorkout: ["count", "min", "max"],
   WorkoutGroupBy: ["id", "name", "createdAt", "updatedAt", "count", "min", "max"],
   AggregateExercise: ["count", "avg", "sum", "min", "max"],
   ExerciseGroupBy: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId", "count", "avg", "sum", "min", "max"],
-  AggregateSet: ["count", "avg", "sum", "min", "max"],
-  SetGroupBy: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception", "count", "avg", "sum", "min", "max"],
+  AggregateExerciseRecord: ["count", "avg", "sum", "min", "max"],
+  ExerciseRecordGroupBy: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception", "count", "avg", "sum", "min", "max"],
   AffectedRowsOutput: ["count"],
   WorkoutCountAggregate: ["id", "name", "createdAt", "updatedAt", "_all"],
   WorkoutMinAggregate: ["id", "name", "createdAt", "updatedAt"],
@@ -177,11 +181,11 @@ const outputsInfo = {
   ExerciseSumAggregate: ["sets", "reps"],
   ExerciseMinAggregate: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
   ExerciseMaxAggregate: ["id", "name", "sets", "reps", "createdAt", "updatedAt", "workoutId"],
-  SetCountAggregate: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception", "_all"],
-  SetAvgAggregate: ["reps"],
-  SetSumAggregate: ["reps"],
-  SetMinAggregate: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"],
-  SetMaxAggregate: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception"]
+  ExerciseRecordCountAggregate: ["id", "reps", "createdAt", "updatedAt", "exerciseId", "perception", "_all"],
+  ExerciseRecordAvgAggregate: ["reps"],
+  ExerciseRecordSumAggregate: ["reps"],
+  ExerciseRecordMinAggregate: ["id", "createdAt", "updatedAt", "exerciseId", "perception"],
+  ExerciseRecordMaxAggregate: ["id", "createdAt", "updatedAt", "exerciseId", "perception"]
 };
 const argsInfo = {
   FindUniqueWorkoutArgs: ["where"],
@@ -208,18 +212,18 @@ const argsInfo = {
   UpsertExerciseArgs: ["where", "create", "update"],
   AggregateExerciseArgs: ["where", "orderBy", "cursor", "take", "skip"],
   GroupByExerciseArgs: ["where", "orderBy", "by", "having", "take", "skip"],
-  FindUniqueSetArgs: ["where"],
-  FindFirstSetArgs: ["where", "orderBy", "cursor", "take", "skip", "distinct"],
-  FindManySetArgs: ["where", "orderBy", "cursor", "take", "skip", "distinct"],
-  CreateSetArgs: ["data"],
-  CreateManySetArgs: ["data", "skipDuplicates"],
-  DeleteSetArgs: ["where"],
-  UpdateSetArgs: ["data", "where"],
-  DeleteManySetArgs: ["where"],
-  UpdateManySetArgs: ["data", "where"],
-  UpsertSetArgs: ["where", "create", "update"],
-  AggregateSetArgs: ["where", "orderBy", "cursor", "take", "skip"],
-  GroupBySetArgs: ["where", "orderBy", "by", "having", "take", "skip"]
+  FindUniqueExerciseRecordArgs: ["where"],
+  FindFirstExerciseRecordArgs: ["where", "orderBy", "cursor", "take", "skip", "distinct"],
+  FindManyExerciseRecordArgs: ["where", "orderBy", "cursor", "take", "skip", "distinct"],
+  CreateExerciseRecordArgs: ["data"],
+  CreateManyExerciseRecordArgs: ["data", "skipDuplicates"],
+  DeleteExerciseRecordArgs: ["where"],
+  UpdateExerciseRecordArgs: ["data", "where"],
+  DeleteManyExerciseRecordArgs: ["where"],
+  UpdateManyExerciseRecordArgs: ["data", "where"],
+  UpsertExerciseRecordArgs: ["where", "create", "update"],
+  AggregateExerciseRecordArgs: ["where", "orderBy", "cursor", "take", "skip"],
+  GroupByExerciseRecordArgs: ["where", "orderBy", "by", "having", "take", "skip"]
 };
 
 type ResolverModelNames = keyof typeof crudResolversMap;

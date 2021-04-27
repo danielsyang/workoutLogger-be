@@ -2,7 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { Set } from "../models/Set";
+import { ExerciseRecord } from "../models/ExerciseRecord";
 import { Workout } from "../models/Workout";
 
 @TypeGraphQL.ObjectType({
@@ -46,5 +46,5 @@ export class Exercise {
   })
   workoutId!: string;
 
-  Set?: Set[];
+  Set?: ExerciseRecord[];
 }

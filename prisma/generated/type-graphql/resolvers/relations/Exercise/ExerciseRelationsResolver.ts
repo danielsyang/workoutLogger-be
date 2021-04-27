@@ -1,6 +1,6 @@
 import * as TypeGraphQL from "type-graphql";
 import { Exercise } from "../../../models/Exercise";
-import { Set } from "../../../models/Set";
+import { ExerciseRecord } from "../../../models/ExerciseRecord";
 import { Workout } from "../../../models/Workout";
 import { ExerciseSetArgs } from "./args/ExerciseSetArgs";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
@@ -18,10 +18,10 @@ export class ExerciseRelationsResolver {
     }).workout({});
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Set], {
+  @TypeGraphQL.FieldResolver(_type => [ExerciseRecord], {
     nullable: false
   })
-  async Set(@TypeGraphQL.Root() exercise: Exercise, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ExerciseSetArgs): Promise<Set[]> {
+  async Set(@TypeGraphQL.Root() exercise: Exercise, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ExerciseSetArgs): Promise<ExerciseRecord[]> {
     return getPrismaFromContext(ctx).exercise.findUnique({
       where: {
         id: exercise.id,
