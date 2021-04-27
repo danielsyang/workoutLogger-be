@@ -26,8 +26,8 @@ model Workout {
 model Exercise {
   id        String   @id @default(uuid())
   name      String
-  sets      Int      @default(0)
-  reps      Int      @default(0)
+  sets      Int
+  reps      Int
   workout   Workout  @relation(fields: [workoutId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

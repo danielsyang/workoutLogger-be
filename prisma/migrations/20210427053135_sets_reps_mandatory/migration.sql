@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Exercise" ALTER COLUMN "sets" DROP DEFAULT,
+ALTER COLUMN "reps" DROP DEFAULT;

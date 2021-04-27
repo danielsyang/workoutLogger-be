@@ -18,14 +18,14 @@ export class ExerciseCreateManyInput {
   name!: string;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+    nullable: false
   })
-  sets?: number | undefined;
+  sets!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+    nullable: false
   })
-  reps?: number | undefined;
+  reps!: number;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
