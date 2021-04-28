@@ -14,4 +14,4 @@ Now let's create a local database. In the terminal run:
 
 Now you're all setup for running this project locally. Run:
 
-**`yarn start:dev`**
+**`yarn start`**
