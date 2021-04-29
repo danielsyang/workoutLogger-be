@@ -35,6 +35,11 @@ export class ExerciseRecordCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  rpe!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   perception!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {

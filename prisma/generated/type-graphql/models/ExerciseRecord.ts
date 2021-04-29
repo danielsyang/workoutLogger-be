@@ -36,6 +36,11 @@ export class ExerciseRecord {
   })
   exerciseId!: string;
 
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  rpe!: number;
+
   @TypeGraphQL.Field(_type => Perception, {
     nullable: false
   })

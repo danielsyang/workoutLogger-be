@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { EnumPerceptionFieldUpdateOperationsInput } from "../inputs/EnumPerceptionFieldUpdateOperationsInput";
 import { ExerciseRecordUpdaterepsInput } from "../inputs/ExerciseRecordUpdaterepsInput";
+import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
@@ -25,6 +26,11 @@ export class ExerciseRecordUpdateWithoutExerciseInput {
     nullable: true
   })
   updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => IntFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  rpe?: IntFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => EnumPerceptionFieldUpdateOperationsInput, {
     nullable: true

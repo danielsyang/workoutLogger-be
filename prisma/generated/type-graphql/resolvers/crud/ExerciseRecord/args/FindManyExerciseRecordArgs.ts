@@ -35,5 +35,5 @@ export class FindManyExerciseRecordArgs {
   @TypeGraphQL.Field(_type => [ExerciseRecordScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "reps" | "createdAt" | "updatedAt" | "exerciseId" | "perception"> | undefined;
+  distinct?: Array<"id" | "reps" | "createdAt" | "updatedAt" | "exerciseId" | "rpe" | "perception"> | undefined;
 }

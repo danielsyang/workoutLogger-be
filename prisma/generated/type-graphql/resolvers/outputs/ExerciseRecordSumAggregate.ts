@@ -11,4 +11,9 @@ export class ExerciseRecordSumAggregate {
     nullable: true
   })
   reps!: number[] | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  rpe!: number | null;
 }

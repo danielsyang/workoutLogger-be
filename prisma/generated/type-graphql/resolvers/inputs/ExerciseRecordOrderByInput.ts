@@ -36,5 +36,10 @@ export class ExerciseRecordOrderByInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
+  rpe?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
   perception?: "asc" | "desc" | undefined;
 }

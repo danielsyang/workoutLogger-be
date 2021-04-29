@@ -42,6 +42,7 @@ model ExerciseRecord {
   updatedAt  DateTime   @updatedAt
   exercise   Exercise   @relation(fields: [exerciseId], references: [id])
   exerciseId String
+  rpe        Int
   perception Perception
 }
 

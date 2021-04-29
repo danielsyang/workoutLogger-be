@@ -6,6 +6,7 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { EnumPerceptionFieldUpdateOperationsInput } from "../inputs/EnumPerceptionFieldUpdateOperationsInput";
 import { ExerciseRecordUpdaterepsInput } from "../inputs/ExerciseRecordUpdaterepsInput";
 import { ExerciseUpdateOneRequiredWithoutSetInput } from "../inputs/ExerciseUpdateOneRequiredWithoutSetInput";
+import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
@@ -26,6 +27,11 @@ export class ExerciseRecordUpdateInput {
     nullable: true
   })
   updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => IntFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  rpe?: IntFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => EnumPerceptionFieldUpdateOperationsInput, {
     nullable: true

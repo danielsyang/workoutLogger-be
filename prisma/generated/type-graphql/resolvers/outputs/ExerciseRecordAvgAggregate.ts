@@ -11,4 +11,9 @@ export class ExerciseRecordAvgAggregate {
     nullable: true
   })
   reps!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: true
+  })
+  rpe!: number | null;
 }

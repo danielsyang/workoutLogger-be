@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
 import { EnumPerceptionWithAggregatesFilter } from "../inputs/EnumPerceptionWithAggregatesFilter";
 import { IntNullableListFilter } from "../inputs/IntNullableListFilter";
+import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
 @TypeGraphQL.InputType({
@@ -50,6 +51,11 @@ export class ExerciseRecordScalarWhereWithAggregatesInput {
     nullable: true
   })
   exerciseId?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
+    nullable: true
+  })
+  rpe?: IntWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => EnumPerceptionWithAggregatesFilter, {
     nullable: true

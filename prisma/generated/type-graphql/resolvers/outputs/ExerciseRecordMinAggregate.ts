@@ -28,6 +28,11 @@ export class ExerciseRecordMinAggregate {
   })
   exerciseId!: string | null;
 
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  rpe!: number | null;
+
   @TypeGraphQL.Field(_type => Perception, {
     nullable: true
   })

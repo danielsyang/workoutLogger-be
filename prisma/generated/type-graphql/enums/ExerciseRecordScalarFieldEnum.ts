@@ -6,6 +6,7 @@ export enum ExerciseRecordScalarFieldEnum {
   createdAt = "createdAt",
   updatedAt = "updatedAt",
   exerciseId = "exerciseId",
+  rpe = "rpe",
   perception = "perception"
 }
 TypeGraphQL.registerEnumType(ExerciseRecordScalarFieldEnum, {

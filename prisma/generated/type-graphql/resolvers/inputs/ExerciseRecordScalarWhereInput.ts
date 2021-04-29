@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumPerceptionFilter } from "../inputs/EnumPerceptionFilter";
+import { IntFilter } from "../inputs/IntFilter";
 import { IntNullableListFilter } from "../inputs/IntNullableListFilter";
 import { StringFilter } from "../inputs/StringFilter";
 
@@ -50,6 +51,11 @@ export class ExerciseRecordScalarWhereInput {
     nullable: true
   })
   exerciseId?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntFilter, {
+    nullable: true
+  })
+  rpe?: IntFilter | undefined;
 
   @TypeGraphQL.Field(_type => EnumPerceptionFilter, {
     nullable: true
